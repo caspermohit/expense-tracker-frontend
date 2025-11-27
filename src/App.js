@@ -1,9 +1,8 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { useState , useEffect } from 'react';
 import axios from 'axios';
-
-
+import CreateUserPage from './pages/CreateUser';
 
 
 function App() {
@@ -17,7 +16,7 @@ function App() {
   return (
    <div style={{textAlign:'center' , marginTop:'50px'}}>
     <h1>Expense Tracker</h1>
-   <h2> {message} </h2>
+    <CreateUserPage/>
 
    </div>
   );
