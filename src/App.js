@@ -1,25 +1,23 @@
+import React from 'react';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+import CreateExpense from './pages/CreateExpense';
+import { BrowserRouter,Routes,Route, Navigate } from 'react-router-dom';
 
-import './App.css';
-import { useState , useEffect } from 'react';
-import axios from 'axios';
-import CreateUserPage from './pages/CreateUser';
-
-
-function App() {
+export default function App(){
+  const token = localStorage.getItem ('token');
+  return(
+    <BrowserRouter>
+    <Routes>
+      <Route path ='/'element ={<Login/>}/>
+      <Route path ='/register' element ={<Register/>}/>
+      <Route path ='/login' element ={<Login/>}/>
+      <Route path ='/dashboard' element ={token ? <Dashboard/>:<Navigate to='/login'/>}/>
+      <Route path ='/createExpense' element ={token ? <CreateExpense/>:<Navigate to='/login'/>}/>
+      </Routes>
+      </BrowserRouter>
+    )
   
-  const [message, setMessage] = useState("");
- useEffect(() => {
-  axios.get(`${process.env.REACT_APP_API_URL}/expenses`)
-  .then((res) =>setMessage(res.data.message))
-  .catch((err) => console.log(err));
- },[]);
-  return (
-   <div style={{textAlign:'center' , marginTop:'50px'}}>
-    <h1>Expense Tracker</h1>
-    <CreateUserPage/>
-
-   </div>
-  );
 }
 
-export default App;

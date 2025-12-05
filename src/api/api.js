@@ -1,33 +1,23 @@
 import axios from 'axios';
- const axiosClient = axios.create({
+ const API = axios.create({
     baseURL: 'http://localhost:8000/api',
     headers:{
         'Content-Type': 'application/json',
+        'Accept':'application/json',
     },
 
+
  });
- axiosClient.interceptors.request.use( (config) =>{
-    const token = localStorage.getItem('token');
-    if(token){
-        config.headers.Authorization =  `Bearer ${token}`;
+ export function  setAuthToken(token){
+    if (token){
+        API.defaults.headers.common['Authorization']= `Bearer ${token}`;
         
     }
-    return config;
-       
+    else{
+        API.defaults.headers.common['Authorization']= null;
+    }
  }
- );
+ export default API;
 
- export const CreateUser =(data)=>{
-     return axiosClient.post('/register',data);   
- }
- export const CreateExpense =(data)=>{
-    return axiosClient.post('/expenses',data);
- }
-  export const Dashboard =()=>{
-    return axiosClient.get('/dashboard');
-}
-export const Login =(data) =>{
-    return axiosClient.post('/login',data);
-}
  
- export default axiosClient;
+ 
