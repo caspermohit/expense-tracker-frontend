@@ -28,7 +28,7 @@ export default function Login(){
     <form onSubmit = {handleSubmit}>
         <input type = 'email' placeholder = 'Email' onChange={(e)=>setEmail(e.target.value)}/>
         <input type = 'password' placeholder = 'Password' onChange={(e)=>setPassword(e.target.value)}/>
-        <button type = 'submit' classname = 'form-button'>Login</button>
+        <button type = 'submit' className = 'form-button'>Login</button>
          <Link to = '/register'>dont have an account? Register</Link>
 
     </form>

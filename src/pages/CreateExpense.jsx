@@ -28,10 +28,10 @@ export default function CreateExpense(){
             expense_name:title,
             expense_type:type,
             description:description,
-            category:category
+            expense_category:category
       }),
     });
-        const data = await response.json();
+        
         navigate('/dashboard');
     };
     
@@ -41,26 +41,28 @@ export default function CreateExpense(){
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Title" onChange={(e)=>setTitle(e.target.value)}/>
                 <input type="number" placeholder="Amount" onChange={(e)=>setAmount(e.target.value)}/>
-                <input type="text" placeholder="Type" onChange={(e)=>setType(e.target.value)}/>
+                 {/* <input type="text" placeholder="Type" onChange={(e)=>setType(e.target.value)}/> */}
+                 <select type= "text" id="expense_type" onChange={(e)=>setType(e.target.value)}>
+                     <option value="">--Select Type--</option>
+                     <option value="Expense">Expense</option>
+                    <option value="Income">Income</option>
+
+                   
+                </select>
+                
                 <input type="text" placeholder="Description" onChange={(e)=>setDescription(e.target.value)}/>
-                <input
-                      list="expenseCategories"
-                      placeholder="Select or type category" onChange = {(e)=>setCategory(e.target.value)}/>
-                      
-                     <datalist id="expenseCategories">
-                     <option value="Food" />
-                     <option value="Travel" />
-                    <option value="Shopping" />
-                     <option value="Rent" />
-                     <option value="Bills" />
-                     <option value="Groceries" />
-                    <option value="Entertainment" />
-                    <option value="Medical" />
-                    <option value="Education" />
-                     <option value="Other" />
-
-      </datalist>
-
+                {/* <input type="text" placeholder="Category" onChange={(e)=>setCategory(e.target.value)}/> */}
+                <select type = "text" id="category" onChange={(e)=>setCategory(e.target.value)}>
+                    <option value="">--Select Category--</option>
+                    <option value="Food">Food</option>
+                    <option value="Clothes">Clothes</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="House">House</option>
+                    <option value="Health">Health</option>
+                    <option value="Education">Education</option>
+                    <option value="Others">Others</option>
+                </select>
                 <button type="submit">Create Expense</button>
                 </form>
         </div>
