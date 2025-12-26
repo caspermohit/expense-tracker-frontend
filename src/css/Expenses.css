@@ -1,0 +1,73 @@
+.expense-card{
+    display: flex;
+   flex-direction: column;
+   width: auto;
+   height: auto;
+   padding: 16px;
+   margin: 10px;
+   border-radius: 12px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+   background-color:#ffffff;
+
+}
+.expense-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+   
+}
+.expense-content h3{
+    font-size: 18px;
+    margin : 0;
+    padding: 0;
+    font-weight: bold;
+    color: #333;
+}
+.expense-content div{
+    width: 200px;
+    
+}
+.create{
+    margin: 15px 0;
+    padding: 12px 12px;
+    background-color: #b9e3eaff; 
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 50%;
+    max-width: 200px;
+    margin-left: 85%;
+
+    
+    
+}
+.breadcrumb{
+    display: flex;
+    
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.breadcrumb li{
+    display: inline-block;
+    padding: 5px;
+    font-size: 16px;
+}
+.breadcrumb li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.breadcrumb li a:hover{
+    text-decoration: underline;
+}
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}

@@ -2,6 +2,8 @@ import React, { use } from 'react';
 import API from '../api/api.js';
 import { useState  } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../css/CreateExpense.css';
+import Navbar from '../components/Navbar';
 
 
 
@@ -37,7 +39,17 @@ export default function CreateExpense(){
     
      return(
         <div>
+            <Navbar/>
+            <br/>
+            <br/>
+            
             <h2>Create Expense</h2>
+            <ul class="breadcrumb">
+                <li><a href="/dashboard">Home</a></li>
+                 <li><a href="/expenses">Expenses</a></li>
+                 <li><a href="/createExpense">Create Expense</a></li>
+                </ul>
+            
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Title" onChange={(e)=>setTitle(e.target.value)}/>
                 <input type="number" placeholder="Amount" onChange={(e)=>setAmount(e.target.value)}/>
@@ -63,7 +75,7 @@ export default function CreateExpense(){
                     <option value="Education">Education</option>
                     <option value="Others">Others</option>
                 </select>
-                <button type="submit">Create Expense</button>
+                <button  className='create-button' type="submit">Create Expense</button>
                 </form>
         </div>
      );

@@ -2,6 +2,12 @@ import React from 'react';
 import {useEffect , useState} from 'react';
 import '../css/Dashboard.css';
 import ExpensePieChart from '../components/ExpensePieChart';
+import Navbar from '../components/Navbar';
+import MonthlyBarChart from '../components/MonthlyBarChart';  
+
+
+
+
 
 export default function Dashboard(){
     const [Expense,setExpense] = useState([]);
@@ -24,7 +30,7 @@ export default function Dashboard(){
 
       const result = await response.json();
       setData(result);
-      console.log("Dashboard data:", result);
+      console.log(result);
     } catch (error) {
       console.error("Dashboard error:", error);
     }
@@ -41,31 +47,56 @@ export default function Dashboard(){
     
     return(
       <>
+      <Navbar/>
+      <br/>
+      <br/>
       
       <h2>Dashboard</h2>
+
       
         <div className = 'dashboard'>
             
-            <div>
-              <h6>Recent Expenses</h6>
-             <p>{data.totalExpenses}</p>
-               </div>
-            <div>
-              <h6>Total Income</h6>
-             <p>{data.totalIncome}</p>
-               </div>
-            <div>
-              <h6>Monthly Expenses</h6>
-             <p>{data.monthlyExpenses}</p>
-               </div>
-            <div>
-              <h6>Monthly Income</h6>
-             <p>{data.monthlyIncome}</p>
-               </div>
-            <div>
-              <h6>Monthly Savings</h6>
-             <p>{data.monthlySavings}</p>
-               </div>
+            <div className='dashboard-card-left'>
+           
+                   <h6>Total</h6>
+              
+           
+             <div className='dashboard-card-1'>
+               <div>
+                <label>TotalExpenses:</label> 
+                <label>{data.totalExpenses}</label>
+                </div>
+
+              <div> <label>Total Income:</label>
+              <label>{data.totalIncome}</label>
+              </div>
+             
+              <div>
+                 <label>Total Savings:</label>
+                <label>{data.totalSavings}</label>
+                </div>
+             </div>
+
+              
+            </div>
+            <div className='dashboard-card-right'>
+           
+            <h6>This Month</h6>
+          
+             <div className='dashboard-card-2'>
+              <div><label> Monthly Income:</label>
+            <label>{data.monthlyIncome}</label>
+             </div>
+            
+             <div> <label>  Monthly Expenses:</label>
+            <label>{data.monthlyExpenses}</label> 
+             </div>
+             
+             <div><label> Monthly Savings:</label>
+             <label>{data.monthlySavings}</label>
+             </div>
+             </div>
+            </div>
             
         </div>
 
@@ -87,7 +118,7 @@ export default function Dashboard(){
   <h4>Expense by Month</h4>
   <div className='bar-graph'>
     <div>
-
+      <MonthlyBarChart monthlyData={data.monthlyChart} />
     </div>
     
     </div>

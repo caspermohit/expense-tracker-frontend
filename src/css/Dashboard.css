@@ -8,11 +8,9 @@
 .dashboard  div{
     background-color: rgb(255, 255, 255);
     margin: 10px;
-    height: 100px;
-    width: 200px;
+    
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+    
     justify-content: center;
     gap: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -30,13 +28,95 @@
 
 
 }
-.dashboard  div h6{
+
+.dashboard-card-left{
+  height: auto;
+  width: 50%;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+    flex-direction: column;
+  box-shadow: 0 1px 2px rbga(0, 0, 0, 0.2);
+  margin-right: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+   
+}
+
+.dashboard-card-left h6{
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+
+}
+.dashboard-card-1{
+    display:flex;
+    flex-direction: row;
+  }
+.dashboard-card-1 div{
+   display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    background-color: #e4e4e4;
+    border: 1px solid #565656;
+    box-shadow: 0 1px 2px rbga(0, 0, 0, 0.2);
+}
+.dashboard-card-1 div label{
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+
+}
+.dashboard-card-right{
+ 
+    height: auto;
+    width: 50%;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    space-a: 10px;
+    box-shadow: 0 1px 2px rbga(0, 0, 0, 0.2);
+    margin-right: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+   
+}
+  .dashboard-card-right h6{
+     font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+   
+  }
+  .dashboard-card-2{
+    display:flex;
+    flex-direction: row;
+  }
+  .dashboard-card-2 div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+    background-color: #e4e4e4;
+    border: 1px solid #565656;
+    box-shadow: 0 1px 2px rbga(0, 0, 0, 0.2);
+  }
+  .dashboard-card-2 div label{
     font-size: 20px;
     margin: 0;
     padding: 0;
     margin-left: 10px;
 
-}
+  }
+
   .pie-chart{
     display: flex;
     justify-content: center;
